@@ -1,0 +1,14 @@
+---
+- hosts: local
+  tasks: 
+  - name: create ec2 instance
+    ec2:
+      key_name: chef
+      instance_type: t2.micro
+      image: ami-718c6909
+      wait: yes
+      group: webserver
+      count: 1
+      vpc_subnet_id: subnet-19e08442
+      assign_public_ip: yes
+    
